@@ -3,6 +3,7 @@
 
     Background: Test environment
       Given I open url "http://3.80.230.80"
+      And I take screenshot
 
     @smoke
     @regression
@@ -10,8 +11,10 @@
     Scenario: Successfull login
       When I click on element with xpath "//*[contains(text(), 'Login')]"
       And element with xpath "//*[contains(@class, 'navbar-brand')]" should contain text "Login"
+      And I take screenshot
       Then I type "student@example.com" into element with xpath "//input[@placeholder='Please enter an Email']"
       And I type "welcome" into element with xpath "//input[@placeholder='Please enter a Password']"
+      And I take screenshot
       And I click on element with xpath "//button[@type='submit']"
       And I wait for element with xpath "//span[contains(@class, 'logout-box')]/a" to be present
       Then element with xpath "//span[contains(@class, 'logout-box')]/a" should contain text "Student"
